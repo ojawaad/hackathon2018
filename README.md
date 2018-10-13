@@ -12,11 +12,11 @@ Mason Event
 fakeJSON
 
 
-JC - auth - limited to edu emails ( for now only mason)
+JC - Frontent (Swift)
 
 Chase- Django REST framework
 
-Omar - backend
+Omar - auth - limited to edu emails ( for now only mason)
 
 JUDGING CRITERIA
 -Technical
