@@ -14,7 +14,7 @@ fakeJSON
 
 JC - auth - limited to edu emails ( for now only mason)
 
-Chase- google maps application
+Chase- Django REST framework
 
 Omar - backend
 
