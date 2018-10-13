@@ -10,11 +10,13 @@ class Notification(models.Model):
     isResolved = models.BooleanField(default=False)
     description = models.TextField(default="")
 
-class Users(models.Model):
+
+class User(models.Model):
     userID = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     userEmail = models.EmailField(max_length=255,unique=True,verbose_name="Email")
+
 
 class ParkingZone(models.Model):
     name = models.CharField(primary_key = True, max_length=255)

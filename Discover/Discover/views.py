@@ -7,3 +7,4 @@ from django.contrib.auth import authenticate, login
 class IndexView(TemplateView):
 	def get(self, request, **kwargs):
 		return render(request, 'index.html', context=None)
+

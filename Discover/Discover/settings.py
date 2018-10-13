@@ -53,21 +53,19 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Discover.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-			os.path.join(BASE_DIR, 'Discover/templates/Discover/'),
-		],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+	{
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'DIRS': [os.path.join(BASE_DIR, 'Discover/templates')],
+		'APP_DIRS': True,
+		'OPTIONS': {
+			'context_processors': [
+				'django.template.context_processors.debug',
+				'django.template.context_processors.request',
+				'django.contrib.auth.context_processors.auth',
+				'django.contrib.messages.context_processors.messages',
+			],
+		},
+	},
 ]
 
 WSGI_APPLICATION = 'Discover.wsgi.application'
@@ -119,7 +117,25 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'acc/static/')
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/'
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'Discover/templates'),)
+REST_FRAMEWORK = {
+	'DEFAULT_PARSER_CLASSES': (
+		'rest_framework.parsers.JSONParser',
+		'rest_framework.parsers.FormParser',
+	),
+	'DEFAULT_PERMISSION_CLASSES': (
+		'rest_framework.permissions.IsAuthenticated',
+	),
+	'DEFAULT_RENDERER_CLASSES': (
+		'rest_framework.renderers.JSONRenderer',
+	),
+	'DEFAULT_FILTER_BACKENDS': (
+		'django_filters.rest_framework.DjangoFilterBackend',
+		'rest_framework.filters.OrderingFilter'
+	),
+	'DEFAULT_PAGINATION_CLASS': 'cosmos.api_management.StandardPagination',
+	'PAGE_SIZE': 50
+}
