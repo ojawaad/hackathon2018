@@ -17,3 +17,14 @@ JC - auth - limited to edu emails ( for now only mason)
 Chase- google maps application
 
 Omar - backend
+
+JUDGING CRITERIA
+-Technical
+How difficult was this project to build?
+-Practicality
+How practical or useful is this project?
+-Originality
+How original is the project?
+-Polish
+How well-built is the project?
+
