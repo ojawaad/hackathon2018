@@ -2,9 +2,11 @@ DISCOVER
 
 User generated notification
 fields: Name, Loc, isResolved, Desc, Createdby, CreatedAt, Type
+UI -> click (add location) then click on location
 
 Parking Zone
 fields: LocName, Name, WaitTime, 
+not user generated, no need to UI
 
 Mason Event
 fakeJSON
