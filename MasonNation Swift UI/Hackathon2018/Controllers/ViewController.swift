@@ -35,6 +35,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func onMenuExit(_ sender: Any) {
         hideMenuView()
     }
+    @IBAction func onLogout(_ sender: Any) {
+        loginButton.isHidden = false
+        logoutButton.isHidden = true
+        helloUser.text = "Hello!"
+        alertUser("Success", msg: "You are now logged out!")
+    }
+    
     let locationManager = CLLocationManager()
     var userCoordinate: CLLocationCoordinate2D?
     var event = [EventMenu]()
@@ -194,7 +201,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 loginButton.isHidden = true
                 logoutButton.isHidden = false
             } else {
-                alertUser("Login", msg: "Invalid Login")
+                alertUser("Login", msg: "Failed to get user's data")
             }
             
         }

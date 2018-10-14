@@ -195,6 +195,9 @@
                                                 <state key="normal" title="Logout" image="exit.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AMf-ZF-Gzv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -506,6 +509,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onInvite:" destination="Wiw-1T-7GD" eventType="touchUpInside" id="Olp-6p-SFD"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cyp-Ez-KFS">
                                 <rect key="frame" x="20" y="405.66666666666669" width="335" height="55"/>
@@ -555,6 +561,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9H4-KH-SYE"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="0t3-is-FFJ" id="WIS-kZ-nRz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEV-KH-mNG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SJ0-GZ-Gjn" userLabel="Exit" sceneMemberID="exit"/>

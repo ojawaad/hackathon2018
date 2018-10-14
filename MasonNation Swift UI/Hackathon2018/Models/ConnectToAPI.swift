@@ -48,4 +48,33 @@ final class ConnectToAPI {
         }
     }
     
+    func inviteUser(email: String, completion: @escaping (String?) -> Void) {
+        Alamofire.request(
+            URL(string: "\(API_URL)/invite_user")!,
+            method: .post,
+            parameters: [
+                "email": email
+            ])
+            .validate()
+            .responseJSON { response in
+                
+                switch (response.result) {
+                case .success:
+                    if let data = response.data {
+                        do {
+                            let errorData = try JSONDecoder().decode(JSError.self, from: data)
+                            completion(errorData.errorMessage)
+                        }
+                        catch {
+                            completion("Failed to invite")
+                        }
+                    }
+                    break
+                case .failure(let error):
+                    completion(error.localizedDescription)
+                    break
+                }
+        }
+    }
+    
 }

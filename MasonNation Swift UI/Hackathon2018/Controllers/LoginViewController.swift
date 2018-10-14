@@ -27,14 +27,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        loginUser(username: username.text!, password: password.text!)
-    }
-    
-    private func loginUser(username: String, password: String) {
         // Loading
         let spinner = createSpinner()
         
-        ConnectToAPI().userLogin(username: username, password: password) {
+        ConnectToAPI().userLogin(username: username.text!, password: password.text!) {
             (user, error) in
             
             // Stop loading
@@ -45,9 +41,9 @@ class LoginViewController: UIViewController {
                 self.defaultValues.set(user.username, forKey: "username")
                 
                 // Successful login
-//                print(user.username!)
-                self.performSegue(withIdentifier: "unwindFromLogin", sender: self)
+                //                print(user.username!)
                 self.user = user
+                self.performSegue(withIdentifier: "unwindFromLogin", sender: self)
             } else {
                 self.alertUser("Login", msg: error)
             }

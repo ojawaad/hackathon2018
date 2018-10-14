@@ -18,7 +18,7 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var eventTitle: String!
     var image: UIImage!
-    var currentAnnotation: MKPointAnnotation?
+    var currentAnnotation: CustomAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,13 +79,31 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func setAnnotation(gestureRecognizer: UILongPressGestureRecognizer) {
         let touchPoint = gestureRecognizer.location(in: mapView)
         let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = newCoordinates
+        let annotation = CustomAnnotation(title: eventDescriptionTextField.text!, image: image, lat: newCoordinates.latitude, long: newCoordinates.longitude)
         if let currentAnnotation = currentAnnotation {
             mapView.removeAnnotation(currentAnnotation)
         }
         mapView.addAnnotation(annotation)
         currentAnnotation = annotation
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if let annotation = annotation as? CustomAnnotation {
+            if let view = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier){
+                return view
+            } else {
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
+                view.image = annotation.image
+                view.isEnabled = true
+                view.canShowCallout = true
+                view.leftCalloutAccessoryView = UIImageView(image: annotation.image)
+                return view
+            }
+        }
+        
+        return nil
     }
     
 }
