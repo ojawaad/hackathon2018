@@ -25,7 +25,7 @@ SECRET_KEY = 'z#+z+a0i*v!^hu+=(z#+*ew)f_%mro%zm5q^^rarf4xzj9bn=+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','54.167.10.130']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Mappy.apps.MappyConfig',
 	'rest_framework',
 	'rest_framework.authtoken',
+	'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ USE_L10N = True
 USE_TZ = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
