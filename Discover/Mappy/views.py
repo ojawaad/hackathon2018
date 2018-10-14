@@ -1,12 +1,7 @@
-from django.shortcuts import render
 from . import models
 from . import serializers
-
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import AnonymousUser, Permission, User, Group
-from django.http import HttpResponse
-from rest_framework import permissions, generics
+from rest_framework import permissions, generics, authentication
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
@@ -45,6 +40,7 @@ class NotificationList(
 class NotificationDetail(
 	generics.RetrieveUpdateDestroyAPIView,
 ):
+	authentication_class = authentication.TokenAuthentication
 	queryset = models.Annotation.objects.all()
 	serializer_class = serializers.NotificationSerializer
 
@@ -60,6 +56,7 @@ class UserList(
 class UserDetail(
 	generics.RetrieveUpdateDestroyAPIView,
 ):
+	authentication_class = authentication.TokenAuthentication
 	permission_class = permissions.IsAuthenticated
 	queryset = User.objects.all()
 	serializer_class = serializers.UserSerializer
@@ -76,6 +73,7 @@ class ParkingZoneList(
 class ParkingZoneDetail(
 	generics.RetrieveUpdateDestroyAPIView,
 ):
+	authentication_class = authentication.TokenAuthentication
 	queryset = models.ParkingZone.objects.all()
 	serializer_class = serializers.ParkingZoneSerializer
 
