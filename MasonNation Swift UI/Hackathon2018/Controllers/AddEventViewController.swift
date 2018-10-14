@@ -10,13 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class AddEventViewController: UIViewController {
+class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var eventTitleLabel: UILabel!
     @IBOutlet weak var eventDescriptionTextField: UITextView!
     @IBOutlet weak var mapView: MKMapView!
     
     var eventTitle: String!
+    var savedAnnotation: MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class AddEventViewController: UIViewController {
         eventTitleLabel.text = "Add \(eventTitle!)"
         
         mapView.alpha = 0.0
+        
+        // Add long press gesture
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action:(#selector(setAnnotation)))
+        gestureRecognizer.minimumPressDuration = 1.0
+        gestureRecognizer.delegate = self
+        mapView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +60,10 @@ class AddEventViewController: UIViewController {
         }
     }
     @IBAction func onSubmitEvent(_ sender: Any) {
-        
+        if savedAnnotation == nil {
+            
+        }
+        self.performSegue(withIdentifier: "unwindFromAddEvent", sender: self)
     }
     
     fileprivate func hideMap() {
@@ -66,6 +76,18 @@ class AddEventViewController: UIViewController {
         UITextView.animate(withDuration: 0.3) {[unowned self] in
             self.mapView.alpha = 1.0
         }
+    }
+    
+    @objc func setAnnotation(gestureRecognizer: UILongPressGestureRecognizer) {
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = newCoordinates
+        if let savedAnnotation = savedAnnotation {
+            mapView.removeAnnotation(savedAnnotation)
+        }
+        mapView.addAnnotation(annotation)
+        savedAnnotation = annotation
     }
     
 }

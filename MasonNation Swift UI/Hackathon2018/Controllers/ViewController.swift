@@ -15,6 +15,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addEventView: UIView!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var helloUser: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     @IBAction func onGetCurrentLocation(_ sender: UIButton) {
         getUsersCurrentLocation()
     }
@@ -40,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         
         getUsersCurrentLocation()
         
@@ -166,14 +170,22 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
 
     // Unwinds
+    @IBAction func unwindWithoutAction(sender: UIStoryboardSegue) {
+    }
     @IBAction func unwindFromAddEvent(sender: UIStoryboardSegue) {
 //        alertUser("Thank You!", msg: "Your submission has been posted.")
         hideAddEventView()
+        
+        if let sourceViewController = sender.source as? AddEventViewController, let savedAnnotation = sourceViewController.savedAnnotation {
+            mapView.addAnnotation(savedAnnotation)
+        }
     }
     
     @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
         //        alertUser("Thank You!", msg: "Your submission has been posted.")
         hideAddEventView()
+        helloUser.text = "Hello Jc!"
+        
     }
     
     @IBAction func unwindFromInvite(sender: UIStoryboardSegue) {

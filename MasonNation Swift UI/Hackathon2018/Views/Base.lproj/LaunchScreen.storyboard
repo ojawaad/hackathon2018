@@ -21,15 +21,21 @@
                             <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mason.png" translatesAutoresizingMaskIntoConstraints="NO" id="EMW-FH-4Vn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MasonConnect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-T4-aZ8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MasonNation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-T4-aZ8">
                                 <rect key="frame" x="20" y="184" width="335" height="39"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.46666666670000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="patriot's nation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4n-tu-jni">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="let's connect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4n-tu-jni">
                                 <rect key="frame" x="20" y="243" width="335" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created with 💙 by Jc, Omar, Chase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOV-6V-bJV">
+                                <rect key="frame" x="20" y="742.33333333333337" width="335" height="15.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -44,7 +50,10 @@
                             <constraint firstItem="e4n-tu-jni" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Syo-Ax-Ev2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e4n-tu-jni" secondAttribute="trailing" constant="20" id="ZvU-IL-wdf"/>
                             <constraint firstAttribute="bottom" secondItem="EMW-FH-4Vn" secondAttribute="bottom" id="bZI-P0-Byj"/>
+                            <constraint firstItem="rOV-6V-bJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="c19-R3-k0d"/>
                             <constraint firstItem="EMW-FH-4Vn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="c3e-bc-QCi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rOV-6V-bJV" secondAttribute="bottom" constant="20" id="lRx-4z-4Dm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rOV-6V-bJV" secondAttribute="trailing" constant="20" id="pFX-aT-tWl"/>
                             <constraint firstItem="EMW-FH-4Vn" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="qjr-vR-a8s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

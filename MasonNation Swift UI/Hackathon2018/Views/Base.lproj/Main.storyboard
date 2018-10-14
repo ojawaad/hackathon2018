@@ -49,9 +49,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I6-ZY-L2e">
-                                <rect key="frame" x="20" y="108" width="76" height="30"/>
+                                <rect key="frame" x="20" y="108" width="81" height="30"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Menu" image="menu.png">
-                                    <color key="titleColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.46666666670000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="onMenuEnter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7Y-BU-JB5"/>
@@ -162,14 +163,14 @@
                                         <rect key="frame" x="20" y="60" width="280" height="692"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cM-wC-uRP">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="224"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="165.66666666666666"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                                 <state key="normal" title="Filter" image="filter.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-0Z-qdG">
-                                                <rect key="frame" x="0.0" y="234" width="280" height="224"/>
+                                                <rect key="frame" x="0.0" y="175.66666666666663" width="280" height="165.33333333333337"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                                 <state key="normal" title="Invite Friends" image="meeting.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +180,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNI-nj-XO3">
-                                                <rect key="frame" x="0.0" y="468" width="280" height="224"/>
+                                                <rect key="frame" x="0.0" y="351" width="280" height="165.66666666666663"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                                 <state key="normal" title="Login" image="user_male.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -188,10 +189,18 @@
                                                     <segue destination="8Tu-KU-SiZ" kind="show" id="AGt-Wa-K1r"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8M-um-y97">
+                                                <rect key="frame" x="0.0" y="526.66666666666663" width="280" height="165.33333333333337"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                                <state key="normal" title="Logout" image="exit.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="fNI-nj-XO3" firstAttribute="height" secondItem="GB5-0Z-qdG" secondAttribute="height" id="eQd-8t-Wse"/>
                                             <constraint firstItem="fNI-nj-XO3" firstAttribute="height" secondItem="8cM-wC-uRP" secondAttribute="height" id="f3B-ED-4gS"/>
+                                            <constraint firstItem="fNI-nj-XO3" firstAttribute="height" secondItem="e8M-um-y97" secondAttribute="height" id="hNZ-7e-ZwJ"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBD-2y-8A0">
@@ -205,7 +214,7 @@
                                             <action selector="onMenuExit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QYj-Oi-Hia"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MasonConnect. PatriotHacks 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3o-dT-kjl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MasonNation. PatriotHacks 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3o-dT-kjl">
                                         <rect key="frame" x="20" y="773.66666666666663" width="280" height="18.333333333333371"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -256,6 +265,9 @@
                     <navigationItem key="navigationItem" id="hFu-rn-XIp"/>
                     <connections>
                         <outlet property="addEventView" destination="kn2-3G-q8C" id="Yde-gx-cHL"/>
+                        <outlet property="helloUser" destination="a9B-KP-3bl" id="bPP-js-asB"/>
+                        <outlet property="loginButton" destination="fNI-nj-XO3" id="6RN-4l-1hO"/>
+                        <outlet property="logoutButton" destination="e8M-um-y97" id="4TX-ho-uQj"/>
                         <outlet property="mapView" destination="IVy-bl-Ndb" id="7Z4-Fk-Xdk"/>
                         <outlet property="menuView" destination="8ux-fJ-tgq" id="EOB-8P-X3m"/>
                     </connections>
@@ -296,7 +308,6 @@
                                 <connections>
                                     <action selector="onAddEventViewHide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nWQ-3N-rAh"/>
                                     <action selector="onSubmitEvent:" destination="Bhj-l3-NmU" eventType="touchUpInside" id="5GM-OQ-Fvl"/>
-                                    <segue destination="ihN-Oj-iU8" kind="unwind" unwindAction="unwindFromAddEventWithSender:" id="utn-RI-yVW"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aSC-is-YtI">
@@ -359,14 +370,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoO-wH-fv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ihN-Oj-iU8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="22.906403940886701"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="RTZ-3K-xEd">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="8Tu-KU-SiZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="8Tu-KU-SiZ" customClass="LoginViewController" customModule="Hackathon2018" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GOe-I8-r8M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -407,6 +417,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8Tu-KU-SiZ" id="d8b-mL-Eyg"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-TJ-kNc">
                                         <rect key="frame" x="0.0" y="65" width="335" height="55"/>
@@ -416,21 +429,38 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8Tu-KU-SiZ" id="Omx-7V-EBE"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-lk-O4I">
+                                <rect key="frame" x="317" y="32" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="OJn-Of-2bL"/>
+                                    <constraint firstAttribute="width" secondItem="EUC-lk-O4I" secondAttribute="height" multiplier="1:1" id="Ydg-Tu-7k3"/>
+                                </constraints>
+                                <state key="normal" image="close_menu.png"/>
+                                <connections>
+                                    <segue destination="sUw-f6-n5m" kind="unwind" unwindAction="unwindWithoutActionWithSender:" id="Z6j-bC-5vS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="EUC-lk-O4I" firstAttribute="top" secondItem="GOe-I8-r8M" secondAttribute="top" constant="32" id="0T1-tn-o6S"/>
                             <constraint firstItem="v2d-CL-AY2" firstAttribute="centerX" secondItem="6xb-dl-4Ge" secondAttribute="centerX" id="5pY-fk-JmI"/>
                             <constraint firstItem="VqP-uq-hcL" firstAttribute="leading" secondItem="6xb-dl-4Ge" secondAttribute="leading" constant="20" id="6xG-IY-IfC"/>
                             <constraint firstItem="6xb-dl-4Ge" firstAttribute="bottom" secondItem="VqP-uq-hcL" secondAttribute="bottom" constant="20" id="9tR-RQ-PQ2"/>
                             <constraint firstItem="v2d-CL-AY2" firstAttribute="centerY" secondItem="6xb-dl-4Ge" secondAttribute="centerY" id="EPo-yn-QKO"/>
                             <constraint firstItem="6xb-dl-4Ge" firstAttribute="trailing" secondItem="VqP-uq-hcL" secondAttribute="trailing" constant="20" id="EVZ-4p-mld"/>
                             <constraint firstItem="6xb-dl-4Ge" firstAttribute="trailing" secondItem="v2d-CL-AY2" secondAttribute="trailing" constant="20" id="FpD-kd-Otq"/>
+                            <constraint firstItem="EUC-lk-O4I" firstAttribute="width" secondItem="EUC-lk-O4I" secondAttribute="height" multiplier="1:1" id="TEJ-36-IYw"/>
                             <constraint firstItem="6xb-dl-4Ge" firstAttribute="trailing" secondItem="WsC-qr-xip" secondAttribute="trailing" constant="20" id="UTI-ly-o0Y"/>
                             <constraint firstItem="WsC-qr-xip" firstAttribute="top" secondItem="6xb-dl-4Ge" secondAttribute="top" constant="40" id="XVZ-xU-k5t"/>
                             <constraint firstItem="WsC-qr-xip" firstAttribute="leading" secondItem="6xb-dl-4Ge" secondAttribute="leading" constant="20" id="jCe-fQ-FPF"/>
+                            <constraint firstItem="6xb-dl-4Ge" firstAttribute="trailing" secondItem="EUC-lk-O4I" secondAttribute="trailing" constant="20" id="nwc-VE-b2e"/>
                             <constraint firstItem="v2d-CL-AY2" firstAttribute="leading" secondItem="6xb-dl-4Ge" secondAttribute="leading" constant="20" id="uLE-vO-0Xy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6xb-dl-4Ge"/>
@@ -441,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="785" y="-642"/>
         </scene>
-        <!--View Controller-->
+        <!--Invite View Controller-->
         <scene sceneID="ADY-24-o9B">
             <objects>
-                <viewController storyboardIdentifier="inviteViewController" id="Wiw-1T-7GD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inviteViewController" id="Wiw-1T-7GD" customClass="InviteViewController" customModule="Hackathon2018" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dKq-xo-DcZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -484,14 +514,29 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Wiw-1T-7GD" id="6l1-Rk-co4"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpO-KX-AEy">
+                                <rect key="frame" x="317" y="32" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fpO-KX-AEy" secondAttribute="height" multiplier="1:1" id="OQ0-3h-wpQ"/>
+                                    <constraint firstAttribute="width" constant="38" id="V6X-x9-1NG"/>
+                                </constraints>
+                                <state key="normal" image="close_menu.png"/>
+                                <connections>
+                                    <segue destination="SJ0-GZ-Gjn" kind="unwind" unwindAction="unwindWithoutActionWithSender:" id="gUK-f5-wRe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9H4-KH-SYE" firstAttribute="trailing" secondItem="cyp-Ez-KFS" secondAttribute="trailing" constant="20" id="3H1-Wm-Stv"/>
+                            <constraint firstItem="fpO-KX-AEy" firstAttribute="width" secondItem="fpO-KX-AEy" secondAttribute="height" multiplier="1:1" id="98k-ir-anK"/>
                             <constraint firstItem="8R8-3o-qkA" firstAttribute="top" secondItem="9H4-KH-SYE" secondAttribute="top" constant="40" id="Ivs-rH-ta0"/>
                             <constraint firstItem="cyp-Ez-KFS" firstAttribute="centerX" secondItem="9H4-KH-SYE" secondAttribute="centerX" id="Izs-aJ-0sF"/>
                             <constraint firstItem="9H4-KH-SYE" firstAttribute="trailing" secondItem="8R8-3o-qkA" secondAttribute="trailing" constant="20" id="Pbr-RJ-X5j"/>
@@ -501,6 +546,9 @@
                             <constraint firstItem="9H4-KH-SYE" firstAttribute="trailing" secondItem="rZz-Xl-VJZ" secondAttribute="trailing" constant="20" id="arY-Eu-8AB"/>
                             <constraint firstItem="9H4-KH-SYE" firstAttribute="bottom" secondItem="rZz-Xl-VJZ" secondAttribute="bottom" constant="20" id="oNU-dI-6om"/>
                             <constraint firstItem="cyp-Ez-KFS" firstAttribute="leading" secondItem="9H4-KH-SYE" secondAttribute="leading" constant="20" id="pge-rD-AFS"/>
+                            <constraint firstAttribute="trailing" secondItem="fpO-KX-AEy" secondAttribute="trailing" constant="20" id="pqC-H6-zt5"/>
+                            <constraint firstItem="fpO-KX-AEy" firstAttribute="top" secondItem="dKq-xo-DcZ" secondAttribute="top" constant="32" id="wSi-pi-VGN"/>
+                            <constraint firstItem="fpO-KX-AEy" firstAttribute="width" secondItem="fpO-KX-AEy" secondAttribute="height" multiplier="1:1" id="zoZ-uo-vZW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9H4-KH-SYE"/>
                     </view>
@@ -514,6 +562,7 @@
     <resources>
         <image name="add_annotation.png" width="42" height="42"/>
         <image name="close_menu.png" width="58" height="58"/>
+        <image name="exit.png" width="30" height="30"/>
         <image name="filter.png" width="30" height="30"/>
         <image name="location_color.png" width="170" height="170"/>
         <image name="map.png" width="30" height="30"/>
