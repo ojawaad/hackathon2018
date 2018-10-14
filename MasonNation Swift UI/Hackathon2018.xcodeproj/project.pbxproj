@@ -236,6 +236,7 @@
 		D4F979F8217311E9002A440F /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F979F7217311E9002A440F /* InviteViewController.swift */; };
 		D4F979FA21731204002A440F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F979F921731204002A440F /* FilterViewController.swift */; };
 		D4F979FC21731E97002A440F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F979FB21731E97002A440F /* User.swift */; };
+		D4F979FE2173217A002A440F /* ConnectToAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F979FD2173217A002A440F /* ConnectToAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -493,6 +494,7 @@
 		D4F979F7217311E9002A440F /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		D4F979F921731204002A440F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		D4F979FB21731E97002A440F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D4F979FD2173217A002A440F /* ConnectToAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectToAPI.swift; sourceTree = "<group>"; };
 		D54CD63DB5105C2115D34343 /* Pods-Hackathon2018Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon2018Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon2018Tests/Pods-Hackathon2018Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DDB45BD2313983F39D12ADA0 /* Pods_Hackathon2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36DCAE582A6534D75565A55 /* Pods_Hackathon2018Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon2018Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -643,6 +645,7 @@
 			isa = PBXGroup;
 			children = (
 				D4F979FB21731E97002A440F /* User.swift */,
+				D4F979FD2173217A002A440F /* ConnectToAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F979FE2173217A002A440F /* ConnectToAPI.swift in Sources */,
 				D4F979FA21731204002A440F /* FilterViewController.swift in Sources */,
 				D4F156C421729C5500B85D30 /* ViewController.swift in Sources */,
 				D4F979F02172E9D5002A440F /* AddEventViewController.swift in Sources */,

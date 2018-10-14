@@ -237,21 +237,21 @@ extension UIViewController {
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-//
-//    func createSpinner() -> NVActivityIndicatorView {
-//        let spinner = NVActivityIndicatorView(frame: CGRect(x: (self.view.frame.width / 2) - 50, y: (self.view.frame.height / 2) - 50, width: 100, height: 100), type: NVActivityIndicatorType(rawValue: 12))
-//        spinner.backgroundColor = UIColor(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0)
-//        spinner.padding = 20;
-//        spinner.layer.cornerRadius = 10
-//        self.view.addSubview(spinner)
-//        spinner.startAnimating()
-//        return spinner
-//    }
-//
-//    func destroySpinner(_ spinner: NVActivityIndicatorView) {
-//        spinner.stopAnimating()
-//        spinner.removeFromSuperview()
-//    }
+
+    func createSpinner() -> NVActivityIndicatorView {
+        let spinner = NVActivityIndicatorView(frame: CGRect(x: (self.view.frame.width / 2) - 50, y: (self.view.frame.height / 2) - 50, width: 100, height: 100), type: NVActivityIndicatorType(rawValue: 12))
+        spinner.backgroundColor = UIColor(red: 255/255, green: 204/255, blue: 51/255, alpha: 1.0)
+        spinner.padding = 20;
+        spinner.layer.cornerRadius = 10
+        self.view.addSubview(spinner)
+        spinner.startAnimating()
+        return spinner
+    }
+
+    func destroySpinner(_ spinner: NVActivityIndicatorView) {
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
+    }
     
     // Dates
     func convertDateFrom(string: String) -> Date {
