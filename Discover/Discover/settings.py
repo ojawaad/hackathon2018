@@ -136,6 +136,4 @@ REST_FRAMEWORK = {
 		'django_filters.rest_framework.DjangoFilterBackend',
 		'rest_framework.filters.OrderingFilter'
 	),
-	'DEFAULT_PAGINATION_CLASS': 'cosmos.api_management.StandardPagination',
-	'PAGE_SIZE': 50
 }

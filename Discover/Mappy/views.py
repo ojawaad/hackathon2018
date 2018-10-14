@@ -23,7 +23,7 @@ class NotificationList(
 class NotificationDetail(
 	generics.RetrieveUpdateDestroyAPIView
 ):
-	queryset = models.Notificatoin.objects.all()
+	queryset = models.Notification.objects.all()
 	serializer_class = serializers.NotificationSerializer
 
 
@@ -48,7 +48,7 @@ class ParkingZoneList(
 	serializer_class = serializers.ParkingZoneSerializer
 
 
-class ParkingZongDetail(
+class ParkingZoneDetail(
 	generics.RetrieveUpdateDestroyAPIView
 ):
 	queryset = models.ParkingZone.objects.all()

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.conf.urls import url, include
-from ..Mappy import views
+from Mappy import views
 from django.contrib.staticfiles.views import serve
 from django.views.decorators.csrf import ensure_csrf_cookie
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -8,8 +8,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 # Authentication API patterns
 auth_apipatterns = [
-	url(r'^login/$', views.LoginView.as_view()),
-	url(r'^logout/$', views.LogoutView.as_view()),
+	# url(r'^login/$', views.LoginView.as_view()),
+	# url(r'^logout/$', views.LogoutView.as_view()),
 ]
 
 discover_apipatterns = [
