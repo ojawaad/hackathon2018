@@ -17,7 +17,8 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     var eventTitle: String!
-    var savedAnnotation: MKPointAnnotation?
+    var image: UIImage!
+    var currentAnnotation: MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
         
         self.mapView.setRegion(region, animated: true)
     }
-    
+
     @IBAction func onShowHideMap(_ sender: Any) {
         if self.mapView.alpha == 0.0 {
             showMap()
@@ -60,9 +61,6 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     @IBAction func onSubmitEvent(_ sender: Any) {
-        if savedAnnotation == nil {
-            
-        }
         self.performSegue(withIdentifier: "unwindFromAddEvent", sender: self)
     }
     
@@ -83,11 +81,11 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
         let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         let annotation = MKPointAnnotation()
         annotation.coordinate = newCoordinates
-        if let savedAnnotation = savedAnnotation {
-            mapView.removeAnnotation(savedAnnotation)
+        if let currentAnnotation = currentAnnotation {
+            mapView.removeAnnotation(currentAnnotation)
         }
         mapView.addAnnotation(annotation)
-        savedAnnotation = annotation
+        currentAnnotation = annotation
     }
     
 }

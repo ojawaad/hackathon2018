@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import NVActivityIndicatorView
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -35,9 +36,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         hideMenuView()
     }
     let locationManager = CLLocationManager()
-    let annotations = MKPointAnnotation()
-    var userLatitude: CLLocationDegrees?
-    var userLongitude: CLLocationDegrees?
+    var userCoordinate: CLLocationCoordinate2D?
     var event = [EventMenu]()
     
     
@@ -47,16 +46,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         getUsersCurrentLocation()
         
-        event.append(EventMenu(img: UIImage(named: "efood.png")!, label: "Food", identifier: "FoodViewController"))
-        event.append(EventMenu(img: UIImage(named: "ebus.png")!, label: "Bus", identifier: "BusViewController"))
-        event.append(EventMenu(img: UIImage(named: "ehazard.png")!, label: "Hazard", identifier: "HazardViewController"))
-        event.append(EventMenu(img: UIImage(named: "elove.png")!, label: "Love", identifier: "LoveViewController"))
-        event.append(EventMenu(img: UIImage(named: "eparking.png")!, label: "Parking", identifier: "ParkingViewController"))
-        event.append(EventMenu(img: UIImage(named: "eplay.png")!, label: "Play", identifier: "PlayViewController"))
-        event.append(EventMenu(img: UIImage(named: "etraffic.png")!, label: "Traffic", identifier: "TrafficViewController"))
+        event.append(EventMenu(image: UIImage(named: "efood.png")!, label: "Food"))
+        event.append(EventMenu(image: UIImage(named: "ebus.png")!, label: "Bus"))
+        event.append(EventMenu(image: UIImage(named: "ehazard.png")!, label: "Hazard"))
+        event.append(EventMenu(image: UIImage(named: "elove.png")!, label: "Love"))
+        event.append(EventMenu(image: UIImage(named: "eparking.png")!, label: "Parking"))
+        event.append(EventMenu(image: UIImage(named: "eplay.png")!, label: "Play"))
+        event.append(EventMenu(image: UIImage(named: "etraffic.png")!, label: "Traffic"))
         
         self.addEventView.alpha = 0.0
-        self.menuView.alpha = 0
+        self.menuView.alpha = 0.0
+        self.logoutButton.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,7 +102,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func getUsersCurrentLocation() {
-        if let userLatitude = userLatitude, let userLongitude = userLongitude {
+        if let userLatitude = userCoordinate?.latitude, let userLongitude = userCoordinate?.longitude {
             let center = CLLocationCoordinate2D(latitude: userLatitude, longitude: userLongitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             
@@ -114,8 +114,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     {
         let location = locations.last! as CLLocation
         
-        userLatitude = location.coordinate.latitude
-        userLongitude = location.coordinate.longitude
+        userCoordinate = location.coordinate
         
         print("user latitude = \(location.coordinate.latitude)")
         print("user longitude = \(location.coordinate.longitude)")
@@ -131,7 +130,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCollection", for: indexPath) as! EventCollectionViewCell
         
         let event = self.event[indexPath.row]
-        cell.setMenu(img: event.img, name: event.label)
+        cell.setMenu(img: event.image, name: event.label)
         
         return cell
     }
@@ -141,6 +140,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "addEvent") as! AddEventViewController
         
         vc.eventTitle = event.label
+        vc.image = event.image
 
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -171,51 +171,68 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     // Unwinds
     @IBAction func unwindWithoutAction(sender: UIStoryboardSegue) {
+        
     }
-    @IBAction func unwindFromAddEvent(sender: UIStoryboardSegue) {
+    
+    @IBAction func unwindToMainView(sender: UIStoryboardSegue) {
 //        alertUser("Thank You!", msg: "Your submission has been posted.")
         hideAddEventView()
+        hideMenuView()
         
-        if let sourceViewController = sender.source as? AddEventViewController, let savedAnnotation = sourceViewController.savedAnnotation {
-            mapView.addAnnotation(savedAnnotation)
+        if let sourceViewController = sender.source as? AddEventViewController {
+            if sourceViewController.currentAnnotation == nil  {
+                mapView.addAnnotation(CustomAnnotation(title: "Testing", image: sourceViewController.image, lat: userCoordinate!.latitude, long: userCoordinate!.longitude))
+            } else {
+                mapView.addAnnotation(sourceViewController.currentAnnotation!)
+            }
+            
+        }
+        
+        else if let sourceViewController = sender.source as? LoginViewController {
+            if let user = sourceViewController.user {
+                helloUser.text = "Hello \(user.firstName) \(user.lastName)!"
+                loginButton.isHidden = true
+                logoutButton.isHidden = false
+            } else {
+                alertUser("Login", msg: "Invalid Login")
+            }
+            
         }
     }
     
-    @IBAction func unwindFromLogin(sender: UIStoryboardSegue) {
-        //        alertUser("Thank You!", msg: "Your submission has been posted.")
-        hideAddEventView()
-        helloUser.text = "Hello Jc!"
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        if let annotation = annotation as? CustomAnnotation {
+            if let view = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier){
+                return view
+            } else {
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
+                view.image = annotation.image
+                view.isEnabled = true
+                view.canShowCallout = true
+                view.leftCalloutAccessoryView = UIImageView(image: annotation.image)
+                return view
+            }
+        }
+        
+        return nil
     }
-    
-    @IBAction func unwindFromInvite(sender: UIStoryboardSegue) {
-        //        alertUser("Thank You!", msg: "Your submission has been posted.")
-        hideAddEventView()
-    }
-    
-    @IBAction func unwindFromFilter(sender: UIStoryboardSegue) {
-        //        alertUser("Thank You!", msg: "Your submission has been posted.")
-        hideAddEventView()
-    }
-
 }
 
 class EventMenu {
     
     //MARK: Properties
     
-    var img: UIImage
+    var image: UIImage
     var label: String
-    var identifier: String
     
     //MARK: Initialization
     
-    init(img: UIImage, label: String, identifier: String) {
+    init(image: UIImage, label: String) {
         
         // Initialize stored properties.
-        self.img = img
+        self.image = image
         self.label = label
-        self.identifier = identifier
     }
 }
 

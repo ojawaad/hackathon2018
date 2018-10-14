@@ -10,8 +10,42 @@ import Foundation
 import Alamofire
 
 final class ConnectToAPI {
-    let API_URL = "https://madeby.jcbriones.com/api/"
-    let API_KEY = "hackathon2018"
     
-   
+    let API_URL = "https://jcbriones.com/mlh2018"
+    
+    func userLogin(username: String, password: String, completion: @escaping (User?, String?) -> Void) {
+        Alamofire.request(
+            URL(string: "\(API_URL)/login")!,
+            method: .post,
+            parameters: [
+                "username": username,
+                "password": password
+            ])
+            .validate()
+            .responseJSON { response in
+                
+                switch (response.result) {
+                case .success:
+                    if let data = response.data {
+                        do {
+                            let userData = try JSONDecoder().decode(User.self, from: data)
+                            completion(userData, nil)
+                        } catch let err {
+                            do {
+                                let errorData = try JSONDecoder().decode(JSError.self, from: data)
+                                completion(nil, errorData.errorMessage)
+                            }
+                            catch {
+                                completion(nil,err.localizedDescription)
+                            }
+                        }
+                    }
+                    break
+                case .failure(let error):
+                    completion(nil, "\(error.localizedDescription)")
+                    break
+                }
+        }
+    }
+    
 }

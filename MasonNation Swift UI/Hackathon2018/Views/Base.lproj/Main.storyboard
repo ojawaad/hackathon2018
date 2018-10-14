@@ -29,7 +29,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hackathon2018" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" id="BYZ-38-t0r" customClass="ViewController" customModule="Hackathon2018" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,8 +306,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onAddEventViewHide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nWQ-3N-rAh"/>
-                                    <action selector="onSubmitEvent:" destination="Bhj-l3-NmU" eventType="touchUpInside" id="5GM-OQ-Fvl"/>
+                                    <action selector="onSubmitEvent:" destination="Bhj-l3-NmU" eventType="touchUpInside" id="BWc-cE-Wxy"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aSC-is-YtI">
@@ -367,9 +366,11 @@
                         <outlet property="eventDescriptionTextField" destination="aSC-is-YtI" id="wQy-08-efm"/>
                         <outlet property="eventTitleLabel" destination="1cR-JX-LQZ" id="vf7-Pk-xfI"/>
                         <outlet property="mapView" destination="0rl-do-Ezj" id="c2J-Xw-v85"/>
+                        <segue destination="1XY-fU-WhH" kind="unwind" identifier="unwindFromAddEvent" unwindAction="unwindToMainViewWithSender:" id="KRk-WG-Zpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoO-wH-fv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1XY-fU-WhH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="784.79999999999995" y="22.906403940886701"/>
         </scene>
@@ -403,7 +404,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="sUw-f6-n5m" kind="unwind" unwindAction="unwindFromLoginWithSender:" id="iaW-gV-d1g"/>
+                                    <action selector="onLogin:" destination="8Tu-KU-SiZ" eventType="touchUpInside" id="uif-Cw-YMC"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-CL-AY2">
@@ -465,6 +466,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6xb-dl-4Ge"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="8mQ-TJ-kNc" id="0rn-L0-Pfu"/>
+                        <outlet property="username" destination="6ki-Ow-UqD" id="jBN-xx-Ygh"/>
+                        <segue destination="sUw-f6-n5m" kind="unwind" identifier="unwindFromLogin" unwindAction="unwindToMainViewWithSender:" id="kWN-6Q-cM8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjW-bq-uFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sUw-f6-n5m" userLabel="Exit" sceneMemberID="exit"/>
@@ -500,9 +506,6 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="SJ0-GZ-Gjn" kind="unwind" unwindAction="unwindFromInviteWithSender:" id="7O7-wr-HWx"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cyp-Ez-KFS">
                                 <rect key="frame" x="20" y="405.66666666666669" width="335" height="55"/>

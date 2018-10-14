@@ -10,6 +10,8 @@
 		1C3A777D1F9BAAD23C68FE41 /* Pods_Hackathon2018UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB45BD2313983F39D12ADA0 /* Pods_Hackathon2018UITests.framework */; };
 		9C77B1FFA5929AE348680630 /* Pods_Hackathon2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FA08B1B4BDB1417E7CAC10 /* Pods_Hackathon2018.framework */; };
 		C8AD7F0D89976BDA43D7812E /* Pods_Hackathon2018Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36DCAE582A6534D75565A55 /* Pods_Hackathon2018Tests.framework */; };
+		D4EF5C84217333AB0064743D /* JSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF5C83217333AB0064743D /* JSError.swift */; };
+		D4EF5C8621736D020064743D /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EF5C8521736D020064743D /* Annotations.swift */; };
 		D4F156C221729C5500B85D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F156C121729C5500B85D30 /* AppDelegate.swift */; };
 		D4F156C421729C5500B85D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F156C321729C5500B85D30 /* ViewController.swift */; };
 		D4F156C721729C5500B85D30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F156C521729C5500B85D30 /* Main.storyboard */; };
@@ -262,6 +264,8 @@
 		245F22C5E55E9CBFF56FB352 /* Pods-Hackathon2018UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon2018UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon2018UITests/Pods-Hackathon2018UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		367A2F4111A9EA1DD8CC6731 /* Pods-Hackathon2018Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon2018Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon2018Tests/Pods-Hackathon2018Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7ECB8976C0665BD25A3FE68 /* Pods-Hackathon2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon2018/Pods-Hackathon2018.debug.xcconfig"; sourceTree = "<group>"; };
+		D4EF5C83217333AB0064743D /* JSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSError.swift; sourceTree = "<group>"; };
+		D4EF5C8521736D020064743D /* Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
 		D4F156BE21729C5500B85D30 /* Hackathon2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F156C121729C5500B85D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F156C321729C5500B85D30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -646,6 +650,8 @@
 			children = (
 				D4F979FB21731E97002A440F /* User.swift */,
 				D4F979FD2173217A002A440F /* ConnectToAPI.swift */,
+				D4EF5C83217333AB0064743D /* JSError.swift */,
+				D4EF5C8521736D020064743D /* Annotations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1307,6 +1313,8 @@
 				D4F979F8217311E9002A440F /* InviteViewController.swift in Sources */,
 				D4F979F621731186002A440F /* LoginViewController.swift in Sources */,
 				D4F156C221729C5500B85D30 /* AppDelegate.swift in Sources */,
+				D4EF5C8621736D020064743D /* Annotations.swift in Sources */,
+				D4EF5C84217333AB0064743D /* JSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

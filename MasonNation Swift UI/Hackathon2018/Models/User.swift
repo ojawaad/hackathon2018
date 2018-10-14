@@ -6,31 +6,16 @@
 //  Copyright © 2018 Jc Briones. All rights reserved.
 //
 
-import UIKit
-
-class User {
+struct User : Codable {
+    let username: String
+    let firstName: String
+    let lastName: String
+    let email: String
     
-    //MARK: Properties
-    
-    var id: Int
-    var username: String
-    var firstName: String
-    var lastName: String
-    var email: String
-    
-    //MARK: Initialization
-    
-    init?(id: Int, username: String, firstName: String, lastName: String, email: String) {
-        
-        // Initialize stored properties.
-        self.id = id
-        self.username = username
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-    }
-    
-    func toString() -> String {
-        return "[\(id)]: \(firstName) \(lastName) (\(username))"
+    private enum CodingKeys: String, CodingKey {
+        case username
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email
     }
 }
