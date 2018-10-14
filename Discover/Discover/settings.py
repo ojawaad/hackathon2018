@@ -40,10 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Mappy.apps.MappyConfig',
 	'rest_framework',
-    'rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
+	'rest_framework.authtoken',
     'rest_auth.registration',
 ]
 
@@ -120,17 +117,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Enables django-rest-auth to use JWT tokens instead of regular tokens.
-REST_USE_JWT = True
-
-
-# Configure the JWTs to expire after 1 hour, and allow users to refresh near-expiration tokens
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=5),
-    'JWT_ALLOW_REFRESH': True,
-}
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_URL = '/static/'
@@ -146,7 +132,7 @@ REST_FRAMEWORK = {
 		'rest_framework.permissions.IsAuthenticated',
 	),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-		'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+		'rest_framework.authentication.TokenAuthentication',
 	),
 	'DEFAULT_PARSER_CLASSES': (
 		'rest_framework.parsers.JSONParser',

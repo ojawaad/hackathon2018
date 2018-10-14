@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.conf.urls import url, include
 from Mappy import views
+from django.urls import path
 from django.contrib.staticfiles.views import serve
 from django.views.decorators.csrf import ensure_csrf_cookie
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -9,9 +10,7 @@ from rest_framework_jwt.views import refresh_jwt_token
 
 # Authentication API patterns
 auth_apipatterns = [
-	url(r'^rest-auth/', include('rest_auth.urls')),
-	url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
-	url(r'^refresh-token/', refresh_jwt_token),
+	path('login', views.login),
 ]
 
 discover_apipatterns = [
