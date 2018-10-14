@@ -18,3 +18,39 @@ class NotificationList(
 	generics.ListCreateAPIView):
 	queryset = models.Notification.objects.all()
 	serializer_class = serializers.NotificationSerializer
+
+
+class NotificationDetail(
+	generics.RetrieveUpdateDestroyAPIView
+):
+	queryset = models.Notificatoin.objects.all()
+	serializer_class = serializers.NotificationSerializer
+
+
+class UserList(
+	generics.ListCreateAPIView
+):
+	queryset = models.User.objects.all()
+	serializer_class = serializers.UserSerializer
+
+
+class UserDetail(
+	generics.RetrieveUpdateDestroyAPIView
+):
+	queryset = models.User.objects.all()
+	serializer_class = serializers.UserSerializer
+
+
+class ParkingZoneList(
+	generics.ListCreateAPIView
+):
+	queryset = models.ParkingZone.objects.all()
+	serializer_class = serializers.ParkingZoneSerializer
+
+
+class ParkingZongDetail(
+	generics.RetrieveUpdateDestroyAPIView
+):
+	queryset = models.ParkingZone.objects.all()
+	serializer_class = serializers.ParkingZoneSerializer
+
