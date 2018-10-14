@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class NotificationSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = models.Notification
+		model = models.Annotation
 		fields = '__all__'
 
 

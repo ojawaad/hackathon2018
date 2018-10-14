@@ -38,7 +38,7 @@ class NotificationList(
 	generics.ListAPIView):
 	permission_class = permissions.AllowAny
 
-	queryset = models.Notification.objects.all()
+	queryset = models.Annotation.objects.all()
 	serializer_class = serializers.NotificationSerializer
 
 
@@ -46,7 +46,7 @@ class NotificationDetail(
 	generics.RetrieveUpdateDestroyAPIView,
 	generics.CreateAPIView
 ):
-	queryset = models.Notification.objects.all()
+	queryset = models.Annotation.objects.all()
 	serializer_class = serializers.NotificationSerializer
 
 
