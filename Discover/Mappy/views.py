@@ -35,7 +35,7 @@ def login(request):
 
 
 class NotificationList(
-	generics.ListAPIView):
+	generics.ListCreateAPIView):
 	permission_class = permissions.AllowAny
 
 	queryset = models.Annotation.objects.all()
@@ -44,14 +44,13 @@ class NotificationList(
 
 class NotificationDetail(
 	generics.RetrieveUpdateDestroyAPIView,
-	generics.CreateAPIView
 ):
 	queryset = models.Annotation.objects.all()
 	serializer_class = serializers.NotificationSerializer
 
 
 class UserList(
-	generics.ListAPIView
+	generics.ListCreateAPIView
 ):
 	permission_class = permissions.AllowAny
 	queryset = User.objects.all()
@@ -60,7 +59,6 @@ class UserList(
 
 class UserDetail(
 	generics.RetrieveUpdateDestroyAPIView,
-	generics.CreateAPIView
 ):
 	permission_class = permissions.IsAuthenticated
 	queryset = User.objects.all()
@@ -68,7 +66,7 @@ class UserDetail(
 
 
 class ParkingZoneList(
-	generics.ListAPIView
+	generics.ListCreateAPIView
 ):
 	permission_class = permissions.AllowAny
 	queryset = models.ParkingZone.objects.all()
@@ -77,7 +75,6 @@ class ParkingZoneList(
 
 class ParkingZoneDetail(
 	generics.RetrieveUpdateDestroyAPIView,
-	generics.CreateAPIView
 ):
 	queryset = models.ParkingZone.objects.all()
 	serializer_class = serializers.ParkingZoneSerializer
