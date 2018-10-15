@@ -191,7 +191,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 mapView.addAnnotation(CustomAnnotation(title: "Testing", image: sourceViewController.image, lat: userCoordinate!.latitude, long: userCoordinate!.longitude))
             } else {
                 mapView.addAnnotation(sourceViewController.currentAnnotation!)
+                // Loading
+                let spinner = createSpinner()
+                
+                ConnectToAPI().addAnnotation(name: sourceViewController.currentAnnotation!.title!, longitude:  sourceViewController.currentAnnotation!.coordinate.longitude, latitude:  sourceViewController.currentAnnotation!.coordinate.latitude, desc: sourceViewController.currentAnnotation!.title!, type: sourceViewController.currentAnnotation!.title!) {
+                    (error) in
+                    
+                    // Stop loading
+                    self.destroySpinner(spinner)
+                }
             }
+            
+            
+            
             
         }
         

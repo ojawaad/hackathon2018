@@ -85,6 +85,7 @@ class AddEventViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         mapView.addAnnotation(annotation)
         currentAnnotation = annotation
+        
     }
     
     

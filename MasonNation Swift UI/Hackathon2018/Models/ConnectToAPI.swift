@@ -77,4 +77,36 @@ final class ConnectToAPI {
         }
     }
     
+    func addAnnotation(name: String, longitude: Double, latitude: Double, desc: String, type: String, completion: @escaping (String?) -> Void) {
+        Alamofire.request(
+            URL(string: "\(API_URL)/add_annotation")!,
+            method: .post,
+            parameters: [
+                "a_name": name,
+                "longitude": longitude,
+                "latitude": latitude,
+                "desc": desc,
+                "a_type": type
+            ])
+            .validate()
+            .responseJSON { response in
+                
+                switch (response.result) {
+                case .success:
+                    if let data = response.data {
+                        do {
+                            let errorData = try JSONDecoder().decode(JSError.self, from: data)
+                            completion(errorData.errorMessage)
+                        }
+                        catch {
+                            completion("Success inserting")
+                        }
+                    }
+                    break
+                case .failure(let error):
+                    completion(error.localizedDescription)
+                    break
+                }
+        }
+    }
 }
