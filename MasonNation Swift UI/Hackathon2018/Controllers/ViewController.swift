@@ -64,6 +64,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.addEventView.alpha = 0.0
         self.menuView.alpha = 0.0
         self.logoutButton.isHidden = true
+        
+        self.mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,12 +111,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func getUsersCurrentLocation() {
-        if let userLatitude = userCoordinate?.latitude, let userLongitude = userCoordinate?.longitude {
-            let center = CLLocationCoordinate2D(latitude: userLatitude, longitude: userLongitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            
-            self.mapView.setRegion(region, animated: true)
-        }
+//        if let userLatitude = userCoordinate?.latitude, let userLongitude = userCoordinate?.longitude {
+//            let center = CLLocationCoordinate2D(latitude: userLatitude, longitude: userLongitude)
+//            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//
+//            self.mapView.setRegion(region, animated: true)
+//        }
+        self.mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -188,7 +191,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         if let sourceViewController = sender.source as? AddEventViewController {
             if sourceViewController.currentAnnotation == nil  {
-                mapView.addAnnotation(CustomAnnotation(title: "Testing", image: sourceViewController.image, lat: userCoordinate!.latitude, long: userCoordinate!.longitude))
+                let annotate = CustomAnnotation(title: "Testing", subtitle: "subtitle", image: UIImage(named: "efood.png")!, lat: userCoordinate!.latitude, long: userCoordinate!.longitude)
+                annotate.image = UIImage(named: "efood.png")!
+                mapView.addAnnotation(annotate)
             } else {
                 mapView.addAnnotation(sourceViewController.currentAnnotation!)
                 // Loading
@@ -201,10 +206,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.destroySpinner(spinner)
                 }
             }
-            
-            
-            
-            
         }
         
         else if let sourceViewController = sender.source as? LoginViewController {
@@ -219,22 +220,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        if let annotation = annotation as? CustomAnnotation {
-            if let view = mapView.dequeueReusableAnnotationView(withIdentifier: annotation.identifier){
-                return view
-            } else {
-                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.identifier)
-                view.image = annotation.image
-                view.isEnabled = true
-                view.canShowCallout = true
-                view.leftCalloutAccessoryView = UIImageView(image: annotation.image)
-                return view
-            }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        if !(annotation is MKPointAnnotation) {
+            return nil
         }
         
-        return nil
+        let annotationIdentifier = "customAnnotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "efood.png")
+        annotationView!.image = pinImage
+        
+        return annotationView
     }
 }
 
